@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const profileController = require("../controllers/profile");
 
-// @desc    Test route
-// @route   GET api/profile
-// access   PUBLIC
-router.get("/", (req, res) => {
-  res.send("Profile route");
-});
+router.get("/", profileController.testRoute);
 
 module.exports = router;

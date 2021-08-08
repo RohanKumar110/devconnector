@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const authController = require("../controllers/auth");
 
-// @desc    Test route
-// @route   GET api/auth
-// access   PUBLIC
-router.get("/", (req, res) => {
-  res.send("Auth route");
-});
+router.get("/", authController.testRoute);
 
 module.exports = router;

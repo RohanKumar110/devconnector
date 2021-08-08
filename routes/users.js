@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const usersController = require("../controllers/users");
 
-// @desc    Test route
-// @route   GET api/users
-// access   PUBLIC
-router.get("/", (req, res) => {
-  res.send("User route");
-});
+router.get("/", usersController.testRoute);
 
 module.exports = router;

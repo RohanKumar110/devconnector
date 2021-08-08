@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const postsController = require("../controllers/posts");
 
-// @desc    Test route
-// @route   GET api/posts
-// access   PUBLIC
-router.get("/", (req, res) => {
-  res.send("Posts route");
-});
+router.get("/", postsController.testRoute);
 
 module.exports = router;
