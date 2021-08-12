@@ -8,6 +8,9 @@ const app = express();
 // Connect Database
 connectDB();
 
+// Init Middleware
+app.use(express.json({ extended: false }));
+
 // Import Routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/users");
