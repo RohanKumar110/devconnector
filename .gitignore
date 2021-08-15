@@ -1,3 +1,16 @@
+# dependencies
 node_modules/
+/client/node_modules/
 
+# production
+/client/build
+
+# misc
+.DS_Store
 config/.env
+/client/.env.local
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+
+npm-debug.log*
