@@ -1,5 +1,6 @@
 import "./App.css";
 import Login from "./components/auth/Login";
+import Alert from "./components/layout/Alert";
 import Navbar from "./components/layout/Navbar";
 import Register from "./components/auth/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
           <Navbar />
           <Route exact path="/" component={LandingPage} />
           <section className="container">
+            <Alert />
             <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
