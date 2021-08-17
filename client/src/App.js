@@ -2,12 +2,14 @@ import "./App.css";
 import { loadUser } from "./actions/auth";
 import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
-import Navbar from "./components/layout/Navbar";
 import setAuthToken from "./utils/setAuthToken";
+import Navbar from "./components/layout/Navbar";
 import Register from "./components/auth/Register";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from "./components/layout/LandingPage";
 import React, { Fragment, useEffect } from "react";
+import Dashboard from "./components/dashboard/Dashboard";
+import LandingPage from "./components/layout/LandingPage";
+import PrivateRoute from "./components/routing/PrivateRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Redux
 import store from "./store";
@@ -34,6 +36,7 @@ function App() {
             <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>
         </Fragment>
