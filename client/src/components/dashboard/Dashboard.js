@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
+import DashboardActions from "./DashboardActions";
 import React, { Fragment, useEffect } from "react";
 import { getProfile } from "../../actions/profile";
 
@@ -32,7 +33,9 @@ function Dashboard({ auth, profile: userProfile, getProfile }) {
           </Link>
         </Fragment>
       ) : (
-        <Fragment>has</Fragment>
+        <Fragment>
+          <DashboardActions />
+        </Fragment>
       )}
     </Fragment>
   );
