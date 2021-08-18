@@ -10,6 +10,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/layout/LandingPage";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import EditProfile from "./components/profile-form/EditProfile";
+import AddEducation from "./components/profile-form/AddEducation";
+import AddExperience from "./components/profile-form/AddExperience";
 import CreateProfile from "./components/profile-form/CreateProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -48,6 +50,16 @@ function App() {
                 exact
                 path="/edit-profile"
                 component={EditProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/add-experience"
+                component={AddExperience}
+              />
+              <PrivateRoute
+                exact
+                path="/add-education"
+                component={AddEducation}
               />
             </Switch>
           </section>

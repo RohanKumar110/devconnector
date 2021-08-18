@@ -13,7 +13,7 @@ function LandingPage({ isAuthenticated }) {
         <div className="landing-inner">
           <h1 className="x-large">Developer Connector</h1>
           <p className="lead">
-            Create a developer profile, share posts and get help from other
+            Create a developer profile share posts and get help from other
             developers
           </p>
           <div className="buttons">
