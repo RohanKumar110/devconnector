@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import DashboardActions from "./DashboardActions";
 import React, { Fragment, useEffect } from "react";
-import { getProfile } from "../../actions/profile";
+import { getProfile, deleteAccount } from "../../actions/profile";
 
-function Dashboard({ auth, profile: userProfile, getProfile }) {
+function Dashboard(props) {
+  const { auth, profile: userProfile, getProfile, deleteAccount } = props;
   const { user } = auth;
   const { loading, profile } = userProfile;
 
@@ -37,8 +38,17 @@ function Dashboard({ auth, profile: userProfile, getProfile }) {
       ) : (
         <Fragment>
           <DashboardActions />
-          <Experience experience={profile.experience} />
-          <Education education={profile.education} />
+          {profile.experience.length > 0 && (
+            <Experience experience={profile.experience} />
+          )}
+          {profile.education.length > 0 && (
+            <Education education={profile.education} />
+          )}
+          <div className="my-2">
+            <button className="btn btn-danger" onClick={() => deleteAccount()}>
+              <i className="fas fa-user-minus" /> Delete My Account
+            </button>
+          </div>
         </Fragment>
       )}
     </Fragment>
@@ -49,6 +59,7 @@ Dashboard.propTypes = {
   getProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -58,6 +69,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getProfile,
+  deleteAccount,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

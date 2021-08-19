@@ -2,9 +2,11 @@ import Moment from "react-moment";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import React, { Fragment } from "react";
+import { deleteExperience } from "../../actions/profile";
 
 function Experience(props) {
-  const { experience } = props;
+  const { experience, deleteExperience } = props;
+
   const experiences = experience.map((exp) => (
     <tr key={exp._id}>
       <td>{exp.company}</td>
@@ -18,19 +20,24 @@ function Experience(props) {
         )}
       </td>
       <td>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => deleteExperience(exp._id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
   return (
     <Fragment>
-      <h2 class="my-2">Experience Credentials</h2>
-      <table class="table">
+      <h2 className="my-2">Experience Credentials</h2>
+      <table className="table">
         <thead>
           <tr>
             <th>Company</th>
-            <th class="hide-sm">Title</th>
-            <th class="hide-sm">Years</th>
+            <th className="hide-sm">Title</th>
+            <th className="hide-sm">Years</th>
             <th></th>
           </tr>
         </thead>
@@ -42,6 +49,11 @@ function Experience(props) {
 
 Experience.propTypes = {
   experience: PropTypes.array.isRequired,
+  deleteExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null)(Experience);
+const mapDispatchToProps = {
+  deleteExperience,
+};
+
+export default connect(null, mapDispatchToProps)(Experience);

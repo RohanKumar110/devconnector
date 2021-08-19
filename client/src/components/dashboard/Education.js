@@ -2,9 +2,11 @@ import Moment from "react-moment";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import React, { Fragment } from "react";
+import { deleteEducation } from "../../actions/profile";
 
 function Education(props) {
-  const { education } = props;
+  const { education, deleteEducation } = props;
+
   const educations = education.map((edu) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
@@ -18,19 +20,24 @@ function Education(props) {
         )}
       </td>
       <td>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => deleteEducation(edu._id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
   return (
     <Fragment>
-      <h2 class="my-2">Education Credentials</h2>
-      <table class="table">
+      <h2 className="my-2">Education Credentials</h2>
+      <table className="table">
         <thead>
           <tr>
             <th>School</th>
-            <th class="hide-sm">Degree</th>
-            <th class="hide-sm">Years</th>
+            <th className="hide-sm">Degree</th>
+            <th className="hide-sm">Years</th>
             <th></th>
           </tr>
         </thead>
@@ -42,6 +49,11 @@ function Education(props) {
 
 Education.propTypes = {
   education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null)(Education);
+const mapDispatchToProps = {
+  deleteEducation,
+};
+
+export default connect(null, mapDispatchToProps)(Education);
