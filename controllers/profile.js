@@ -1,5 +1,6 @@
 const axios = require("axios");
 const User = require("../models/User");
+const Post = require("../models/Post");
 const Profile = require("../models/Profile");
 const { validationResult } = require("express-validator");
 
@@ -97,6 +98,8 @@ module.exports.deleteUserProfile = async (req, res) => {
   const { id } = req.user;
   // Remove profile
   await Profile.findOneAndRemove({ user: id });
+  // Remove Posts
+  await Post.deleteMany({ user: id });
   // Remove User
   await User.findByIdAndDelete(id);
 
