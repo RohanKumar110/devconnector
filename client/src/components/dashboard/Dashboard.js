@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import Education from "./Education";
+import Experience from "./Experience";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
@@ -35,6 +37,8 @@ function Dashboard({ auth, profile: userProfile, getProfile }) {
       ) : (
         <Fragment>
           <DashboardActions />
+          <Experience experience={profile.experience} />
+          <Education education={profile.education} />
         </Fragment>
       )}
     </Fragment>
