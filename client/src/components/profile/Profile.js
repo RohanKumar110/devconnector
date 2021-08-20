@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import ProfileTop from "./ProfileTop";
+import ProfileAbout from "./ProfileAbout";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import React, { Fragment, useEffect } from "react";
@@ -15,7 +17,6 @@ function Profile(props) {
 
   useEffect(() => {
     getProfileByUserId(match.params.user_id);
-    // eslint-disable-next-line
   }, [getProfileByUserId, match.params.user_id]);
 
   return (
@@ -34,6 +35,10 @@ function Profile(props) {
                 Edit Profile
               </Link>
             )}
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+          </div>
         </Fragment>
       )}
     </Fragment>
