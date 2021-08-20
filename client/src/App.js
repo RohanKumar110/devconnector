@@ -6,6 +6,7 @@ import setAuthToken from "./utils/setAuthToken";
 import Navbar from "./components/layout/Navbar";
 import Register from "./components/auth/Register";
 import React, { Fragment, useEffect } from "react";
+import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
 import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/layout/LandingPage";
@@ -42,6 +43,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:user_id" component={Profile} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 exact
