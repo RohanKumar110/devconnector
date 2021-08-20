@@ -4,6 +4,7 @@ import ProfileTop from "./ProfileTop";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import ProfileAbout from "./ProfileAbout";
+import ProfileGithub from "./ProfileGithub";
 import ProfileEducation from "./ProfileEducation";
 import ProfileExperience from "./ProfileExperience";
 import React, { Fragment, useEffect } from "react";
@@ -70,6 +71,9 @@ function Profile(props) {
                 <h4>No Education Credentials</h4>
               )}
             </div>
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
           </div>
         </Fragment>
       )}
