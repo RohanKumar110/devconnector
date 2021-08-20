@@ -11,13 +11,13 @@ function Navbar(props) {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/dashboard">
-          <i className="fas fa-user" />{" "}
-          <span className="hide-sm">Dashboard</span>
-        </Link>
+        <Link to="/dashboard">Dashboard</Link>
       </li>
       <li>
         <Link to="/profiles">Developers</Link>
+      </li>
+      <li>
+        <Link to="/posts">Posts</Link>
       </li>
       <li>
         <Link to="#!" onClick={logout}>

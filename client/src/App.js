@@ -1,6 +1,7 @@
 import "./App.css";
 import { loadUser } from "./actions/auth";
 import Login from "./components/auth/Login";
+import Posts from "./components/posts/Posts";
 import Alert from "./components/layout/Alert";
 import setAuthToken from "./utils/setAuthToken";
 import Navbar from "./components/layout/Navbar";
@@ -45,6 +46,7 @@ function App() {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:user_id" component={Profile} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/posts" component={Posts} />
               <PrivateRoute
                 exact
                 path="/create-profile"
