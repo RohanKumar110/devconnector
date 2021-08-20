@@ -16,7 +16,7 @@ function Profiles(props) {
 
   return (
     <Fragment>
-      {loading ? (
+      {loading || profiles.length === 0 ? (
         <Spinner />
       ) : (
         <Fragment>
