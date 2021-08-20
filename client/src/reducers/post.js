@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR } from "../actions/types";
+import { GET_POSTS, UPDATE_LIKES, POST_ERROR } from "../actions/types";
 
 const initialState = {
   post: null,
@@ -15,6 +15,14 @@ function postReducer(state = initialState, action) {
         ...state,
         posts: payload,
         loading: false,
+      };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        loading: false,
+        posts: state.posts.map((post) =>
+          post._id === payload.id ? { ...post, likes: payload.likes } : post
+        ),
       };
     case POST_ERROR:
       return {

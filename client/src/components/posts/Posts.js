@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getPosts } from "../../actions/post";
 import React, { Fragment, useEffect } from "react";
+import PostItem from "./PostItem";
 
 function Posts(props) {
   const { post, getPosts } = props;
@@ -12,7 +13,28 @@ function Posts(props) {
     getPosts();
   }, [getPosts]);
 
-  return <Fragment>Posts</Fragment>;
+  return loading ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      {posts.length > 0 ? (
+        <Fragment>
+          <h1 className="large text-primary">Posts</h1>
+          <p className="lead">
+            <i className="fas fa-user" /> Welcome to the Community
+          </p>
+          {/* PostForm */}
+          <div className="posts">
+            {posts.map((post) => (
+              <PostItem key={post._id} post={post} />
+            ))}
+          </div>
+        </Fragment>
+      ) : (
+        <h4>No Posts</h4>
+      )}
+    </Fragment>
+  );
 }
 
 Posts.propTypes = {
