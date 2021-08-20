@@ -17,6 +17,9 @@ function Navbar(props) {
         </Link>
       </li>
       <li>
+        <Link to="/profiles">Developers</Link>
+      </li>
+      <li>
         <Link to="#!" onClick={logout}>
           <i className="fas fa-sign-out-alt" />{" "}
           <span className="hide-sm">Logout</span>
@@ -28,7 +31,7 @@ function Navbar(props) {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/">Developers</Link>
+        <Link to="/profiles">Developers</Link>
       </li>
       <li>
         <Link to="/register">Register</Link>
