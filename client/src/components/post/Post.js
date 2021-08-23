@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import CommentForm from "./CommentForm";
+import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import PostItem from "../posts/PostItem";
 import { getPost } from "../../actions/post";
 import React, { Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function Post(props) {
   const {
@@ -27,6 +28,7 @@ function Post(props) {
             Back To Posts
           </Link>
           <PostItem post={post} showActions={false} />
+          <CommentForm postId={post._id} />
         </Fragment>
       )}
     </Fragment>
