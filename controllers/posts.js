@@ -163,7 +163,7 @@ module.exports.addComment = async (req, res) => {
     };
     post.comments.unshift(comment);
     await post.save();
-    res.status(400).json(post.comments);
+    return res.status(200).json(post.comments);
   } catch (err) {
     console.log(err.message);
     if (err.kind === "ObjectId") {
